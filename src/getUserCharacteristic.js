@@ -1,19 +1,15 @@
-export default function getUserСharacteristic(object) {
+export default function getUserCharacteristic(obj) {
   const resultArr = [];
-
-  object.special.forEach((item) => {
+  for (const item of obj.special) {
     const {
- id, name, icon, description = 'Описание недоступно',
-} = item;
-
-    const obj = {};
-    obj.id = id;
-    obj.name = name;
-    obj.icon = icon;
-    obj.description = description;
-
-    resultArr.push(obj);
-  });
-
+      id, name, icon, description = 'Описание не доступно',
+    } = item;
+    resultArr.push({
+      id,
+      name,
+      icon,
+      description,
+    });
+  }
   return resultArr;
 }
