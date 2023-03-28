@@ -1,15 +1,3 @@
-export default function getUserCharacteristic(obj) {
-  const resultArr = [];
-  for (const item of obj.special) {
-    const {
-      id, name, icon, description = 'Описание не доступно',
-    } = item;
-    resultArr.push({
-      id,
-      name,
-      icon,
-      description,
-    });
-  }
-  return resultArr;
+export default function getUserСharacteristic({ special = [] }) {
+	return special.map(({ description = 'Описание недоступно', ...item }) => ({ ...item, description }));
 }
